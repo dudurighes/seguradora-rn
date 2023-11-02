@@ -18,7 +18,8 @@ export const styles = StyleSheet.create({
     width: "90%",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 60,
+    marginTop: 30,
+    textTransform: "uppercase",
   },
   title: {
     color: "#fff",
@@ -37,11 +38,12 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  inputsContainer: {
+  containerInfo: {
     width: "90%",
     justifyContent: "center",
+    gap: 15,
   },
-  inputLogin: {
+  input: {
     width: "100%",
     height: 48,
     backgroundColor: "#fff",
@@ -53,10 +55,8 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "black",
     borderStyle: "solid",
-    fontWeight: "bold",
-    fontSize: 25,
   },
-  btnLogin: {
+  btnGlobal: {
     width: "100%",
     backgroundColor: "#01633D",
     height: 48,
@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  btnLoginText: {
+  btnGlobalText: {
     color: "#fff",
     backgroundColor: "#01633D",
     alignItems: "center",
@@ -72,7 +72,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 24,
   },
-  forgetPasswordText: {
+  return: {
     color: "#5987CC",
     fontWeight: "bold",
     fontSize: 18,
