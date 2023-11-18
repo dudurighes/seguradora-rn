@@ -11,14 +11,14 @@ type RouteParams = {
   idade: number;
   veiculo: string;
   ano: number;
+  valor: number;
 };
 
 export function Orcamento() {
+  const [valorBase, setValorBase] = useState(0);
   const [valorPorIdade, setValorPorIdade] = useState(0);
   const [valorPorAno, setValorPorAno] = useState(0);
   const [valorTotal, setValorTotal] = useState(0);
-
-  const valorBase = 1000;
 
   const navigation = useNavigation();
 
@@ -35,6 +35,8 @@ export function Orcamento() {
   }
 
   useEffect(() => {
+    var valorBase = calcularValorBase();
+    setValorBase(valorBase);
     var valorTotal = valorBase;
 
     var valorPorIdade = calcularValorPorIdade(valorTotal);
@@ -47,6 +49,17 @@ export function Orcamento() {
     setValorPorAno(valorPorAno);
     setValorTotal(valorTotal);
   }, []);
+
+  function calcularValorBase() {
+    var valorBase = 1000;
+    var valorVeiculo = parameters.valor;
+    if (valorVeiculo > 100000) {
+      valorBase = 2000;
+    } else if (valorVeiculo >= 50000 && valorVeiculo <= 100000) {
+      valorBase = 1500;
+    }
+    return valorBase;
+  }
 
   function calcularValorPorIdade(valorTotal: number) {
     var valorIdade = 0;

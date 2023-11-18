@@ -13,6 +13,7 @@ type RouteParams = {
 export function DadosVeiculo() {
   const [veiculo, setVeiculo] = useState("");
   const [anoVeiculo, setAnoVeiculo] = useState("");
+  const [valorVeiculo, setValorVeiculo] = useState("");
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -20,7 +21,7 @@ export function DadosVeiculo() {
   const parameters = route.params as RouteParams;
 
   function handleNext() {
-    if (veiculo == "" || anoVeiculo == "") {
+    if (veiculo == "" || anoVeiculo == "" || valorVeiculo == "") {
       Alert.alert("Validação", "Preencha todos os campos");
       return;
     }
@@ -29,6 +30,7 @@ export function DadosVeiculo() {
       idade: parameters.idade,
       veiculo: veiculo,
       ano: Number(anoVeiculo),
+      valor: Number(valorVeiculo),
     });
   }
 
@@ -66,6 +68,14 @@ export function DadosVeiculo() {
             keyboardType="numeric"
             value={anoVeiculo}
             onChangeText={setAnoVeiculo}
+            style={styles.input}
+          />
+
+          <Text style={styles.label}>Qual o valor do seu carro?</Text>
+          <TextInput
+            keyboardType="numeric"
+            value={valorVeiculo}
+            onChangeText={setValorVeiculo}
             style={styles.input}
           />
         </View>

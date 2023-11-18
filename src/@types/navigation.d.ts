@@ -14,6 +14,7 @@ export declare global {
         idade: number;
         veiculo: string;
         ano: number;
+        valor: number;
       };
     }
   }
