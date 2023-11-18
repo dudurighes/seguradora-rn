@@ -3,6 +3,7 @@ import { styles } from "./styles";
 
 type Props = {
   text: string;
+  iconeMoeda: string;
   value: number;
 };
 
@@ -11,7 +12,7 @@ export default function Card(props: Props) {
     <View style={styles.container}>
       <Text style={styles.text}>{props.text}</Text>
       <Text style={styles.text}>
-        R$ {props.value.toFixed(2).replace(".", ",")}
+        {props.iconeMoeda} {props.value.toFixed(2).replace(".", ",")}
       </Text>
     </View>
   );
