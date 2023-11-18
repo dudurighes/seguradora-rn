@@ -146,7 +146,6 @@ export function Orcamento() {
           iconStyle={{ borderColor: "black" }}
           innerIconStyle={{ borderWidth: 2 }}
           onPress={(isChecked: boolean) => {
-            console.log("Checked: ", isChecked);
             if (isChecked) {
               valoresEmDolar();
             } else {
