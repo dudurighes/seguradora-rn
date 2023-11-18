@@ -12,6 +12,7 @@ type RouteParams = {
   idade: number;
   veiculo: string;
   ano: number;
+  valor: number;
 };
 
 export function Orcamento() {
@@ -42,7 +43,7 @@ export function Orcamento() {
   }, []);
 
   function calcularSeguro() {
-    var valorBaseInicio = 1000;
+    var valorBaseInicio = calcularValorBase();
     setIconeMoeda("R$");
     setValorBase(valorBaseInicio);
     var valorTotal = valorBaseInicio;
@@ -56,6 +57,17 @@ export function Orcamento() {
     setValorPorIdade(valorPorIdade);
     setValorPorAno(valorPorAno);
     setValorTotal(valorTotal);
+  }
+
+  function calcularValorBase() {
+    var valorBase = 1000;
+    var valorVeiculo = parameters.valor;
+    if (valorVeiculo > 100000) {
+      valorBase = 2000;
+    } else if (valorVeiculo >= 50000 && valorVeiculo <= 100000) {
+      valorBase = 1500;
+    }
+    return valorBase;
   }
 
   function calcularValorPorIdade(valorTotal: number) {
