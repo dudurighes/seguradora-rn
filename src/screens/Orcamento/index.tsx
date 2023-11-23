@@ -39,13 +39,7 @@ export function Orcamento() {
   }
 
   useEffect(() => {
-    calcularSeguro();
-  }, []);
-
-  function calcularSeguro() {
     var valorBaseInicio = calcularValorBase();
-    setIconeMoeda("R$");
-    setValorBase(valorBaseInicio);
     var valorTotal = valorBaseInicio;
 
     var valorPorIdade = calcularValorPorIdade(valorTotal);
@@ -54,10 +48,12 @@ export function Orcamento() {
     var valorPorAno = calcularValorPorAno(valorTotal);
     valorTotal = valorTotal + valorPorAno;
 
+     setIconeMoeda("R$");
+    setValorBase(valorBase);
     setValorPorIdade(valorPorIdade);
     setValorPorAno(valorPorAno);
     setValorTotal(valorTotal);
-  }
+  }, []);
 
   function calcularValorBase() {
     var valorBase = 1000;
