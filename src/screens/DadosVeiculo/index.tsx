@@ -4,6 +4,7 @@ import { Text, View, TextInput, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
+import { TextInputMask } from "react-native-masked-text";
 
 type RouteParams = {
   user: string;
@@ -14,6 +15,7 @@ export function DadosVeiculo() {
   const [veiculo, setVeiculo] = useState("");
   const [anoVeiculo, setAnoVeiculo] = useState("");
   const [valorVeiculo, setValorVeiculo] = useState("");
+  const [placaVeiculo, setPlacaVeiculo] = useState("");
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -77,6 +79,17 @@ export function DadosVeiculo() {
             value={valorVeiculo}
             onChangeText={setValorVeiculo}
             style={styles.input}
+          />
+
+          <Text style={styles.label}>Qual a placa do veículo?</Text>
+          <TextInputMask
+            type={"custom"}
+            style={styles.input}
+            value={placaVeiculo}
+            options={{ mask: "AAA-9A99" }}
+            onChangeText={(textValue) => {
+              setPlacaVeiculo(textValue.toUpperCase());
+            }}
           />
         </View>
 

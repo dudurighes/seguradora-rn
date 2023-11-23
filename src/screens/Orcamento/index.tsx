@@ -36,7 +36,6 @@ export function Orcamento() {
 
   useEffect(() => {
     var valorBase = calcularValorBase();
-    setValorBase(valorBase);
     var valorTotal = valorBase;
 
     var valorPorIdade = calcularValorPorIdade(valorTotal);
@@ -45,6 +44,7 @@ export function Orcamento() {
     var valorPorAno = calcularValorPorAno(valorTotal);
     valorTotal = valorTotal + valorPorAno;
 
+    setValorBase(valorBase);
     setValorPorIdade(valorPorIdade);
     setValorPorAno(valorPorAno);
     setValorTotal(valorTotal);

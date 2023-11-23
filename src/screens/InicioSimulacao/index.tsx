@@ -4,6 +4,7 @@ import { Text, View, TextInput, TouchableOpacity, Alert } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
+import { TextInputMask } from "react-native-masked-text";
 
 type RouteParams = {
   user: string;
@@ -11,6 +12,7 @@ type RouteParams = {
 
 export function InicioSimulacao() {
   const [idade, setIdade] = useState("");
+  const [cpf, setCpf] = useState("");
 
   const navigation = useNavigation();
   const route = useRoute();
@@ -55,6 +57,14 @@ export function InicioSimulacao() {
             onChangeText={setIdade}
             style={styles.input}
             keyboardType="numeric"
+          />
+
+          <Text style={styles.label}>Qual o seu cpf?</Text>
+          <TextInputMask
+            type={"cpf"}
+            style={styles.input}
+            value={cpf}
+            onChangeText={setCpf}
           />
         </View>
 
